@@ -1,6 +1,9 @@
 package internal
 
 /**
+ * Modified by Jean Sung
+ * help from Prof Ben in office hours
+ * RepeatUntil:
  * the loop body should execute 10 times and print:
  * 0
  * 2
@@ -10,40 +13,38 @@ package internal
  */
 
 object RepeatUntil extends App {
-	 def repeat (body: => Unit) {
-		body 
-		while (!until _) {body}
-	    def until(condition: Boolean) = if (condition) true else false
-	   
-	 }
-	
-	 
-	//  make the until similar to a function to mimic the function call 
-	  // define the new control-flow structure here
-
-	  	
-	  
-//      def repeat (body: => Unit)(breakCondition: => Boolean) = {
-//        body
-//
-//    while (!breakCondition) {
-//      body
-//    }
- // }
-      
-      //def until(condition: Boolean) = if (condition) true else false 
-      //val until = until2 _
-      
-    //val until = (condition: Boolean) => if (condition) true else false 
-      
-
+  
+  implicit class repeat(body: => Unit) {
+    def until(cond: => Boolean):Unit = {
+      do {
+        body
+      } while (!cond)
+    }
+  }
+  
+  /*
+    Equivaliently is to have 
+    
+    class RepeatWrapper(body: => Unit) {
+    	def until(cond: => Boolean):Unit = {
+	      do {
+	        body
+	      } while (!cond)
+    }
+  }
+    
+    def repeat(body: => Unit) = {
+    	new RepeatWrapper(body)
+  	}
+  */
   var i = 0
-  repeat  {
+   repeat  {
       if ( (i % 2) == 0 )
           println(i)
       i += 1
-  } until(i > 9)    
+  } until(i > 9)   
   
   
 }
+
 

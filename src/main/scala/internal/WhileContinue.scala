@@ -12,7 +12,12 @@ package internal
 object WhileContinue extends App {
 
   // define the new control-flow structures here
-
+    def while_c(keepGoing: => Boolean)(body: => Unit) = {
+    while (keepGoing) {
+      body
+      // if 
+    }
+  }
 //  var i = -1
 //
 //  while_c (i < 9) {

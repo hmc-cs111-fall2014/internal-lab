@@ -11,20 +11,18 @@ package internal
 object LoopUntil extends App {
 
 
-    def loop_until(breakCondition: => Boolean)(body: => Unit) = {
-    while (!breakCondition) {
-      body
-    }
-  }
-  
-    
-    // is reevaluate the boolean 
-  var i = 0
-  loop_until (i > 9) {
-      if ( (i % 2) == 0 )
-          println(i)
-      i += 1
-  }
-  
+	def loop_until(breakCondition: => Boolean)(body: => Unit) = {
+		while (!breakCondition) {
+			body
+		}
+	}
+
+	var i = 0
+			loop_until (i > 9) {
+		if ( (i % 2) == 0 )
+			println(i)
+			i += 1
+	}
+
 
 }
