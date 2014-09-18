@@ -12,7 +12,22 @@ package internal
 object WhileContinue extends App {
 
   // define the new control-flow structures here
-
+  case class continueException(str:String) extends Exception(str)
+  
+  def while_c(control: =>Boolean)(body: =>Unit) = {
+    while (control) {
+      try {
+        body
+      } catch {
+        case e: continueException => Nil
+      }
+    }
+  }
+  
+  def continue = {
+    throw new continueException("")
+  }
+  
   var i = -1
 
   while_c (i < 9) {
