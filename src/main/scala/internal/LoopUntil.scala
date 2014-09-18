@@ -11,6 +11,9 @@ package internal
 object LoopUntil extends App {
 
   // define the new control-flow structure here
+  def loop_until(control: =>Boolean)(body: =>Unit) = {
+    while (!control) body
+  }  
 
   var i = 0
   
