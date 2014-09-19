@@ -14,16 +14,13 @@ package internal
 
 object RepeatUntil extends App {
   
+  // re definition of repeat_until 
   implicit class repeat(body: => Unit) {
-    def until(cond: => Boolean):Unit = {
-      do {
-        body
-      } while (!cond)
-    }
+    def until(cond: => Boolean):Unit = {do {body} while (!cond)}
   }
   
   /*
-    Equivaliently is to have 
+    Equivalent: 
     
     class RepeatWrapper(body: => Unit) {
     	def until(cond: => Boolean):Unit = {
@@ -37,6 +34,8 @@ object RepeatUntil extends App {
     	new RepeatWrapper(body)
   	}
   */
+  
+  // verifying use case
   var i = 0
    repeat  {
       if ( (i % 2) == 0 )
