@@ -15,9 +15,7 @@ package internal
 object RepeatUntil extends App {
   
   // re definition of repeat_until 
-  implicit class repeat(body: => Unit) {
-    def until(cond: => Boolean):Unit = {do {body} while (!cond)}
-  }
+  implicit class repeat(body: => Unit) {def until(cond: => Boolean):Unit = {do {body} while (!cond)}}
   
   /*
     Equivalent: 
@@ -43,7 +41,4 @@ object RepeatUntil extends App {
       i += 1
   } until(i > 9)   
   
-  
 }
-
-
