@@ -11,8 +11,23 @@ package internal
 
 object WhileContinue extends App {
 
-  // define the new control-flow structures here
-
+  // the key idea: implement continue as an exception
+  object ContinueException extends RuntimeException
+  
+  // a parameterless function can be used to add a "keyword" to the language
+  // The function results in type Unit, to prevent continue from being used as
+  //  an expression (e.g., while_c(continue)).
+  def continue: Unit = throw ContinueException
+  
+  def while_c(condition: ⇒ Boolean)(body: ⇒Unit): Unit = {
+    try {
+      while(condition)
+        body
+    } catch {
+      case ContinueException ⇒ while_c(condition){body}
+    }
+  }
+  
   var i = -1
 
   while_c (i < 9) {
@@ -20,6 +35,5 @@ object WhileContinue extends App {
       if ( (i % 2) != 0 )
           continue
       println(i)
-  }        
-
+  } 
 }
