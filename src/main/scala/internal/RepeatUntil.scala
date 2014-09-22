@@ -17,9 +17,9 @@ object RepeatUntil extends App {
   
   class UntilRunner(body: ⇒Unit) {
     def until(condition: ⇒Boolean) = {
-      body                 // the body executes at least once 
-      while (!condition)
+      do {
         body
+      } while(!condition)
     }
   }
   
@@ -34,9 +34,9 @@ object RepeatUntil extends App {
   /*
     implicit class repeat(body: ⇒Unit) {
       def until(condition: ⇒Boolean) = {
-        body                 // the body executes at least once 
-        while (!condition)
+        do {
           body
+        } while(!condition)
       }
     }    
   */
