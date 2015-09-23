@@ -14,6 +14,11 @@ object RepeatUntil extends App {
   // define the new control-flow structure here
 
   var i = 0
+  
+  def repeat( => Unit, => Boolean) = {
+    
+  }
+  
   repeat  {
       if ( (i % 2) == 0 )
           println(i)

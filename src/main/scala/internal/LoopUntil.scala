@@ -14,6 +14,12 @@ object LoopUntil extends App {
 
   var i = 0
   
+  def loop_until(condition: => Boolean)(f: => Unit) = {
+    while (!condition) {
+      f
+    }
+  }
+  
   loop_until (i > 9) {
       if ( (i % 2) == 0 )
           println(i)
