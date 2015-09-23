@@ -15,6 +15,9 @@ flow structures:
   - To maximize the fun, you **should not use any Scala libraries** to implement 
   your control-flow structures. In other words, to do this lab, you won't
   need `import` or `extends` (except for `extends App`).
+  - When solving a puzzle, reverse-engineer it from the interface (i.e., what
+  the user types). Looking at this interface, what kinds of Scala structures
+  (e.g., functions and methods) could be used in that way?
   - Some of the puzzles may be tricky at first. Keep at it, and talk to other
   people about your ideas. Above all, resist the temptation to look for an 
   answer online or in a book. The main
@@ -123,6 +126,20 @@ If you finish the first three parts of the lab, consider taking on this
 challenge: Design and implement a notation for mathematical summations that is as
 expressive as those used in math and is as close as possible to the notation that
 a mathematician would use.
+
+## Bonus: ScalaTest
+Take a look at the 
+[ScalaTest guide](http://www.scalatest.org/user_guide/selecting_a_style), 
+which describes a dizzying array of options for specifying tests. See if you can 
+reverse-engineer their implementation: how are the implementers of ScalaTest 
+providing all these options? Check whether your intuition is correct by browsing
+the ScalaTest 
+[documentation](http://doc.scalatest.org/2.2.4/index.html#org.scalatest.FlatSpec) or
+[source code](https://github.com/scalatest/scalatest/tree/master/scalatest/src/main/scala/org/scalatest).
+
+_Note: ScalaTest is a big library that provides many forms of syntactic sugar 
+for what is essentially the same behavior. As such, there's more software engineering
+in ScalaTest that there is in your implementation of control-flow structures!_
 
 ## Bonus: Baysick
 Try your hand at implementing the syntax for
